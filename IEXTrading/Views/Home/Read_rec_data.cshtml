@@ -1,0 +1,131 @@
+﻿@model IEnumerable<IEXTrading.Models.Rec>
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"] - Recreation Activities</title>
+        <!---->
+        <link rel="stylesheet" href="~/css/index.css" />
+        <script type="text/javascript" src="~/js/Chart.min.js"></script>
+        <script type="text/javascript" src="~/lib/chartjs-plugin-annotation-master/chartjs-plugin-annotation.min.js"></script>
+        <script type="text/javascript" src="~/js/site.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+
+        <link rel="stylesheet"
+              type="text/css"
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Pacifico|Roboto&display=swap" rel="stylesheet">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    </head>
+    <body>
+        <div class="head">
+            <div class="topnav">
+                <a asp-area="" asp-controller="Home" asp-action="Index">HOME</a>
+                <a class="active" asp-area="" asp-controller="Home" asp-action="Read_rec_data">EXPLORE</a>
+                <a asp-area="" asp-controller="Home" asp-action="HelloIndex">ABOUT US</a>
+                <a asp-area="" asp-controller="Signups" asp-action="Create">SIGN UP</a>
+                <a asp-area="" asp-controller="Home" asp-action="Refresh">DELETE</a>
+
+
+                <div class="bodyexplore">
+
+                </div>
+            </div>
+
+            <div>
+                <h1 class="home_about_dataset" align="center">Recreation Spring Gym Activities and Details</h1>
+            </div>
+
+            <div class="summary_table" style="overflow-x:auto;">
+                <table>
+                    <tr>
+                       
+                        <th>Activity</th>
+                        <th>Recreation Center</th>
+                        <th>Address</th>
+                        <th>Phone Number</th>
+                        <th>Age Requirement</th>
+                        <th>Days of Week</th>
+                        <th>Times</th>
+
+                    </tr>
+
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                           
+                            <td>
+                                @Html.DisplayFor(modelItem => item.activity)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.recreation_center)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.address)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.phone_number)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.age_requirements)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.days_of_week)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.times)
+                            </td>
+                        </tr>
+                        }
+                        <tr>
+                            <td>
+                                <a id="dbopt" asp-controller="Home" asp-action="Savedata">SAVE </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <script>
+    alertDbSave(@ViewBag.dbSuccessComp);
+                </script>
+            </div>
+
+            <br><br>
+            <div class="pie_div">
+                <canvas class="pie" id="pie-chart" width="800" height="200"></canvas>
+            </div>
+
+            <script>
+                new Chart(document.getElementById("pie-chart"), {
+                    type: 'pie',
+                    responsive: true,
+                    data: {
+                        labels: ["Badminton", "Basketball", "Floor Hockey", "Pickle Ball", "Table Tennis", "Tiny Tots", "Volleyball"],
+                        datasets: [{
+                            label: "Number of Entries in the Dataset",
+                            backgroundColor: ["red", "blue", "green", "purple", "yellow", "orange", "pink"],
+                            data: [21, 93, 1, 23, 1, 11, 25]
+                        }]
+                    },
+                    options: {
+                        title: {
+                            display: true,
+                            text: 'Number of Clubs categorised by Recreational Activities '
+
+                        }
+                    }
+                });
+
+            </script>
+        </div>
+    </body>
+<script>
+    alertDbSave(@ViewBag.dbSuccessComp);
+</script>

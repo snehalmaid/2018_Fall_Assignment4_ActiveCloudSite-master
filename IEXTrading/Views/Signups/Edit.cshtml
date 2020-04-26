@@ -1,0 +1,104 @@
+﻿@model IEXTrading.Models.Signup
+
+@{
+    ViewData["Title"] = "Edit";
+}
+    <head>
+        <title>Recreational Activities</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="~/css/index.css" />
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,500"
+              rel="stylesheet"
+              type="text/css" />
+        <link rel="stylesheet"
+              type="text/css"
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Pacifico|Roboto&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="head">
+            <div class="topnav">
+                <a asp-area="" asp-controller="Home" asp-action="Index">HOME</a>
+                <a asp-area="" asp-controller="Home" asp-action="Read_rec_data">EXPLORE</a>
+                <a asp-area="" asp-controller="Home" asp-action="HelloIndex">ABOUT US</a>
+                <a class="active" asp-area="" asp-controller="Signups" asp-action="Create">SIGN UP</a>
+                <a asp-area="" asp-controller="Home" asp-action="Refresh">DELETE</a>
+            </div>
+        </div>
+
+            <h2>Edit</h2>
+
+            <h4>Signup</h4>
+            <hr />
+            <div class="row">
+                <div class="col-md-4">
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Id" />
+                        <div class="form-group">
+                            <label asp-for="customer_id" class="control-label"></label>
+                            <input asp-for="customer_id" class="form-control" />
+                            <span asp-validation-for="customer_id" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="first_name" class="control-label"></label>
+                            <input asp-for="first_name" class="form-control" />
+                            <span asp-validation-for="first_name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="last_name" class="control-label"></label>
+                            <input asp-for="last_name" class="form-control" />
+                            <span asp-validation-for="last_name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="age" class="control-label"></label>
+                            <input asp-for="age" class="form-control" />
+                            <span asp-validation-for="age" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Email" class="control-label"></label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="activity" class="control-label"></label>
+                            <input asp-for="activity" class="form-control" />
+                            <span asp-validation-for="activity" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="recreation_center" class="control-label"></label>
+                            <input asp-for="recreation_center" class="form-control" />
+                            <span asp-validation-for="recreation_center" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="days_of_week" class="control-label"></label>
+                            <input asp-for="days_of_week" class="form-control" />
+                            <span asp-validation-for="days_of_week" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="times" class="control-label"></label>
+                            <input asp-for="times" class="form-control" />
+                            <span asp-validation-for="times" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Save" class="btn btn-default" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div>
+                <a asp-action="Index">Back to List</a>
+            </div>
+        </body>
+            @section Scripts {
+                @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+            }

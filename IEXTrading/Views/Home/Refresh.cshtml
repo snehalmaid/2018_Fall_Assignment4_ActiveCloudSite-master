@@ -1,0 +1,84 @@
+﻿@model Dictionary<string, int>
+@{
+    ViewData["Title"] = "Refresh";
+}
+
+
+    <head>
+        <title>Recreational Activities</title>
+        <link rel="stylesheet" href="~/css/index.css" />
+        <script type="text/javascript" src="~/js/Chart.min.js"></script>
+        <script type="text/javascript" src="~/lib/chartjs-plugin-annotation-master/chartjs-plugin-annotation.min.js"></script>
+        <script type="text/javascript" src="~/js/site.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,500"
+              rel="stylesheet"
+              type="text/css" />
+        <link rel="stylesheet"
+              type="text/css"
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Pacifico|Roboto&display=swap" rel="stylesheet">
+    </head>
+
+<body>
+    <div class="head">
+        <div class="topnav">
+            <a asp-area="" asp-controller="Home" asp-action="Index">HOME</a>
+            <a asp-area="" asp-controller="Home" asp-action="Read_rec_data">EXPLORE</a>
+            <a asp-area="" asp-controller="Home" asp-action="HelloIndex">ABOUT US</a>
+            <a asp-area="" asp-controller="Signups" asp-action="Create">SIGN UP</a>
+            <a class="active" asp-area="" asp-controller="Home" asp-action="Refresh">DELETE</a>
+
+
+
+        </div>
+
+
+        <div>
+            <h1 class="home_about_dataset" align="center">Montgomery County Recreation Spring Gym Activities</h1>
+        </div>
+
+
+        <h2>DELETE RECORDS</h2>
+        <hr />
+
+        <p style="text-align:center;color:purple;font-size:20px">This page allows user to delete records from the table based on activity</p>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Table
+                    </th>
+                    <th>
+                        Records
+                    </th>
+                    <th>
+
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+
+                @foreach (KeyValuePair<string, int> item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.Key
+                        </td>
+                        <td>
+                            @item.Value
+                        </td>
+                        <td>
+                            <a asp-controller="Home" asp-action="Refresh" asp-route-tableToDel=@item.Key>Delete Records</a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+</body>

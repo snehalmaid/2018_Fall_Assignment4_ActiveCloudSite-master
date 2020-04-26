@@ -1,0 +1,104 @@
+﻿@model IEXTrading.Models.Signup
+
+@{
+    ViewData["Title"] = "Details";
+}
+<!-- Latest compiled and minified CSS -->
+<head>
+    <title>Recreational Activities</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/css/index.css" />
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,500"
+          rel="stylesheet"
+          type="text/css" />
+    <link rel="stylesheet"
+          type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Pacifico|Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="head">
+        <div class="topnav">
+            <a asp-area="" asp-controller="Home" asp-action="Index">HOME</a>
+            <a asp-area="" asp-controller="Home" asp-action="Read_rec_data">EXPLORE</a>
+            <a asp-area="" asp-controller="Home" asp-action="HelloIndex">ABOUT US</a>
+            <a class="active" asp-area="" asp-controller="Signups" asp-action="Create">SIGN UP</a>
+            <a asp-area="" asp-controller="Home" asp-action="Refresh">DELETE</a>
+        </div>
+    </div>
+
+    <h2>Details</h2>
+
+    <div>
+        <h4>Signup</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.customer_id)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.customer_id)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.first_name)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.first_name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.last_name)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.last_name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.age)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.age)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.activity)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.activity)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.recreation_center)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.recreation_center)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.days_of_week)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.days_of_week)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.times)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.times)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>
+    </body>
